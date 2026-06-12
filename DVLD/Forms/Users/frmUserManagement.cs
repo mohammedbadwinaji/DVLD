@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace DVLD.Forms.Users
 {
     public partial class frmUserManagement : Form
     {
+        enum enIsActiveFilterValue
+        {
+            All,
+            Active,
+            Non_Active
+        }
         enum enFilterOption
         {
             None,
@@ -26,6 +33,7 @@ namespace DVLD.Forms.Users
         }
 
         DataView _dvUsers;
+        enFilterOption _CurrentFilterOption;
         public frmUserManagement()
         {
             InitializeComponent();
@@ -64,6 +72,23 @@ namespace DVLD.Forms.Users
             txtFilterValue.Hide();
             cmbFilterValue.Hide();
         }
+
+        
+        private void _InitComboBoxFilterInput<T>() where T : Enum
+        {
+            cmbFilterValue.Items.Clear();
+            // here no need for this switch .....
+            switch(typeof(T))
+            {
+                case Type t when t == typeof(enIsActiveFilterValue):
+                    foreach (enIsActiveFilterValue value in Enum.GetValues(typeof(enIsActiveFilterValue)))
+                    {
+                        cmbFilterValue.Items.Add(_GetIsActiveFilterValueString(value));
+                    }
+                    cmbFilterValue.SelectedIndex = cmbFilterValue.FindStringExact(_GetIsActiveFilterValueString(enIsActiveFilterValue.All));
+                    break;
+            }
+        }
         private void _ResetFilterInputs()
         {
             _ClearAllFilterInputs();
@@ -72,9 +97,27 @@ namespace DVLD.Forms.Users
 
 
 
+        private string _GetIsActiveFilterValueString(enIsActiveFilterValue value)
+        {
+            return value.ToString().Replace("_", " ");
+        }
+        private enIsActiveFilterValue _GetIsActiveFilterValueEnum(string value)
+        {
+            return (enIsActiveFilterValue) Enum.Parse(typeof (enIsActiveFilterValue),value.ToString().Replace(" ", "_"));
+        }
+
+
         private string _GetFilterOptionString(enFilterOption filterOption)
         {
             return filterOption.ToString().Replace("_", " ");
+        }
+        private enFilterOption _GetFilterOptionEnum (string filterValue)
+        {
+            return (enFilterOption) Enum.Parse(typeof(enFilterOption), filterValue.Replace(" ","_")); 
+        }
+        private enFilterOption _GetSelectedFilterOption()
+        {
+            return _GetFilterOptionEnum(cmbFilterOptions.Text);
         }
         private void _ResetFilterOptions()
         {
@@ -129,6 +172,75 @@ namespace DVLD.Forms.Users
             _OpenAddEditUserForm(_GetSelectedPersonId());
         }
 
+        
+        private void _HandleFilteration(string column ,string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                _dvUsers.RowFilter = "";
+            else
+            _dvUsers.RowFilter = $"CONVERT([{column}], 'System.String') LIKE '%{value}%'";
+        }
+
+        private string _ReadIsActiveValue()
+        {
+            if (cmbFilterValue.Text == "All")
+            {
+                return "";
+            }
+            else if (cmbFilterValue.Text == "Active")
+            {
+                return "1"; 
+            }
+            else 
+            {
+                return "0"; 
+            }
+        }
+        private void cmbFilterValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            // here no need for switch case because i have one comboBox and i know where data comes from
+            // but if i have multiple comboBo data can comes from
+            // i need for this switch case
+            string value = "";
+            switch (_CurrentFilterOption)
+            {
+                case enFilterOption.Is_Active:
+                    value = _ReadIsActiveValue();
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        _dvUsers.RowFilter = "";
+                    }
+                    else
+                    {
+                        _dvUsers.RowFilter = $"[Is Active] = {value}";
+                    }
+                    break;
+            }
+        }
+
+        private void _PreventStringValue(TextBox txtbox)
+        {
+            if (string.IsNullOrEmpty(txtbox.Text)) return;
+            if(!int.TryParse(txtbox.Text,out int result))
+            {
+                txtbox.Text = txtbox.Text.Substring(0, txtbox.Text.Length - 1);
+            }
+        }
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
+        {
+            switch(_CurrentFilterOption)
+            {
+                case enFilterOption.Person_ID:
+                case enFilterOption.User_ID:
+                    _PreventStringValue(sender as TextBox);
+                    break;
+                
+            }
+
+            _HandleFilteration(_GetFilterOptionString(_GetSelectedFilterOption()), txtFilterValue.Text);
+        }
+
         private void dgvUsers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             // Ensure the user right-clicked a valid data row, not the header boundary
@@ -143,6 +255,32 @@ namespace DVLD.Forms.Users
                 // Force the grid focus engine to update its pointer index
                 dgvUsers.CurrentCell = dgvUsers.Rows[e.RowIndex].Cells[e.ColumnIndex == -1 ? 0 : e.ColumnIndex];
             }
+        }
+
+        private void cmbFilterOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _ResetFilterInputs();
+            _CurrentFilterOption = _GetSelectedFilterOption();
+
+            switch (_CurrentFilterOption)
+            {
+                case enFilterOption.None:
+                    _HandleFilteration("Full Name",null);
+                    break;
+                case enFilterOption.User_ID:
+                case enFilterOption.Person_ID:
+                case enFilterOption.UserName:
+                case enFilterOption.Full_Name:
+                    txtFilterValue.Visible = true;
+                    break;
+                case enFilterOption.Is_Active:
+                    _InitComboBoxFilterInput<enIsActiveFilterValue>();
+                    cmbFilterValue.Visible = true;
+                    break;
+
+            }
+
+
         }
     }
 }

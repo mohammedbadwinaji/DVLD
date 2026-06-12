@@ -43,13 +43,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPeopleView = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbFilterValue = new System.Windows.Forms.ComboBox();
+            this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.txtFilterValue = new System.Windows.Forms.TextBox();
-            this.cmbFilterValue = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.cms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,6 +67,7 @@
             this.cmbFilterOptions.Name = "cmbFilterOptions";
             this.cmbFilterOptions.Size = new System.Drawing.Size(158, 21);
             this.cmbFilterOptions.TabIndex = 2;
+            this.cmbFilterOptions.SelectedIndexChanged += new System.EventHandler(this.cmbFilterOptions_SelectedIndexChanged);
             // 
             // dgvUsers
             // 
@@ -195,6 +196,24 @@
             this.panel1.Size = new System.Drawing.Size(922, 49);
             this.panel1.TabIndex = 1;
             // 
+            // cmbFilterValue
+            // 
+            this.cmbFilterValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFilterValue.FormattingEnabled = true;
+            this.cmbFilterValue.Location = new System.Drawing.Point(300, 12);
+            this.cmbFilterValue.Name = "cmbFilterValue";
+            this.cmbFilterValue.Size = new System.Drawing.Size(216, 21);
+            this.cmbFilterValue.TabIndex = 4;
+            this.cmbFilterValue.SelectedIndexChanged += new System.EventHandler(this.cmbFilterValue_SelectedIndexChanged);
+            // 
+            // txtFilterValue
+            // 
+            this.txtFilterValue.Location = new System.Drawing.Point(300, 12);
+            this.txtFilterValue.Name = "txtFilterValue";
+            this.txtFilterValue.Size = new System.Drawing.Size(216, 20);
+            this.txtFilterValue.TabIndex = 3;
+            this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -246,22 +265,6 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(922, 132);
             this.pnlHeader.TabIndex = 3;
-            // 
-            // txtFilterValue
-            // 
-            this.txtFilterValue.Location = new System.Drawing.Point(300, 12);
-            this.txtFilterValue.Name = "txtFilterValue";
-            this.txtFilterValue.Size = new System.Drawing.Size(216, 20);
-            this.txtFilterValue.TabIndex = 3;
-            // 
-            // cmbFilterValue
-            // 
-            this.cmbFilterValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFilterValue.FormattingEnabled = true;
-            this.cmbFilterValue.Location = new System.Drawing.Point(300, 11);
-            this.cmbFilterValue.Name = "cmbFilterValue";
-            this.cmbFilterValue.Size = new System.Drawing.Size(216, 21);
-            this.cmbFilterValue.TabIndex = 4;
             // 
             // frmUserManagement
             // 
