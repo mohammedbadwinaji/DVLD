@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business;
 using DVLD.Forms.People;
 
-namespace DVLD.Controls.People
+namespace DVLD.Controls
 {
     public partial class usrPersonCard : UserControl
     {
@@ -19,14 +19,36 @@ namespace DVLD.Controls.People
         {
             InitializeComponent();
         }
-        public void Load(int PersonID)
+        private void _SetDefaultValue()
+        {
+            lblPersonID.Text = "[????]";
+            lblName.Text = "[????]";
+            lblNationalNo.Text = "[????]";
+            lblDateOfBirth.Text = "[????]";
+            lblCountry.Text = "[????]";
+            lblEmail.Text = "[????]";
+            lblPhone.Text = "[????]";
+            lblAddress.Text = "[????]";
+            lblGendor.Text = "[????]"; 
+            pbPersonImage.ImageLocation = clsSettings.MaleImagePath;
+        }
+        private void _Reset()
+        {
+            _SetDefaultValue();
+            llEditPerson.Enabled = false;
+        }
+        public void LoadInfo(int PersonID)
         {
             clsPerson person = clsPerson.FindById(PersonID);
 
             if (person == null) {
-                MessageBox.Show($"Person With Id {PersonID} Not Exists");
+                _Reset();
                 return;
             }
+
+            
+            llEditPerson.Enabled = true;
+
 
             lblPersonID.Text = person.PersonId.ToString();
             lblName.Text = _GetFullName(person.FirstName,person.SecondName,person.ThirdName,person.LastName);
@@ -65,7 +87,7 @@ namespace DVLD.Controls.People
         }
         private void usrPersonCard_Load(object sender, EventArgs e)
         {
-
+            _Reset();
         }
 
         private void llEditPerson_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -80,9 +102,7 @@ namespace DVLD.Controls.People
         private void _HandlePersonSave(int updatedPersonId)
         {
             
-            this.Load(updatedPersonId);
-
-            
+            this.LoadInfo(updatedPersonId);
             OnPersonDetailsUpdated?.Invoke(updatedPersonId);
         }
     }

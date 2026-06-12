@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using DVLD.Forms;
+using DVLD.Forms.Users;
 
 namespace DVLD
 {
@@ -120,5 +121,15 @@ namespace DVLD
             this.Close();
         }
 
+        private void miUsers_Click(object sender, EventArgs e)
+        {
+            _CloseAllForms();
+            frmUserManagement frm = new frmUserManagement();
+            frm.MdiParent = this;
+            frm.Width = this.Width - 200;
+
+            frm.Show();
+            _CenterAllForms();
+        }
     }
 }

@@ -103,6 +103,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddPerson_321 {
+            get {
+                object obj = ResourceManager.GetObject("AddPerson 321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Address_32 {
             get {
                 object obj = ResourceManager.GetObject("Address 32", resourceCulture);
@@ -243,6 +253,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Next_32 {
+            get {
+                object obj = ResourceManager.GetObject("Next 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Number_32 {
             get {
                 object obj = ResourceManager.GetObject("Number 32", resourceCulture);
@@ -256,6 +276,26 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap Password_32 {
             get {
                 object obj = ResourceManager.GetObject("Password 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap People_400 {
+            get {
+                object obj = ResourceManager.GetObject("People 400", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap People_64 {
+            get {
+                object obj = ResourceManager.GetObject("People 64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +343,29 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Prev_32 {
+            get {
+                object obj = ResourceManager.GetObject("Prev 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Save_32 {
             get {
                 object obj = ResourceManager.GetObject("Save 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SearchPerson {
+            get {
+                object obj = ResourceManager.GetObject("SearchPerson", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

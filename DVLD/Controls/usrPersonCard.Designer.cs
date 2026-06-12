@@ -1,4 +1,4 @@
-﻿namespace DVLD.Controls.People
+﻿namespace DVLD.Controls
 {
     partial class usrPersonCard
     {
@@ -281,6 +281,8 @@
             // 
             // pbPersonImage
             // 
+            this.pbPersonImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPersonImage.Location = new System.Drawing.Point(509, 114);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(177, 177);
@@ -292,7 +294,7 @@
             // 
             this.llEditPerson.AutoSize = true;
             this.llEditPerson.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.llEditPerson.Location = new System.Drawing.Point(538, 65);
+            this.llEditPerson.Location = new System.Drawing.Point(546, 66);
             this.llEditPerson.Name = "llEditPerson";
             this.llEditPerson.Size = new System.Drawing.Size(116, 16);
             this.llEditPerson.TabIndex = 9;
@@ -388,6 +390,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "usrPersonCard";
             this.Size = new System.Drawing.Size(692, 358);
+            this.Load += new System.EventHandler(this.usrPersonCard_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();

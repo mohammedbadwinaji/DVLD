@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.miApplication = new System.Windows.Forms.ToolStripMenuItem();
+            this.miUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.miPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.miUserSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.miLogout = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miApplication,
+            this.miUsers,
             this.miPeople,
             this.miUserSettings});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -62,11 +64,25 @@
             this.miApplication.Text = "Application";
             this.miApplication.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
+            // miUsers
+            // 
+            this.miUsers.BackColor = System.Drawing.Color.White;
+            this.miUsers.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.miUsers.Image = global::DVLD.Properties.Resources.Users_2_64;
+            this.miUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.miUsers.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.miUsers.Name = "miUsers";
+            this.miUsers.Padding = new System.Windows.Forms.Padding(4);
+            this.miUsers.Size = new System.Drawing.Size(124, 76);
+            this.miUsers.Text = "Users";
+            this.miUsers.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.miUsers.Click += new System.EventHandler(this.miUsers_Click);
+            // 
             // miPeople
             // 
             this.miPeople.BackColor = System.Drawing.Color.White;
             this.miPeople.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miPeople.Image = global::DVLD.Properties.Resources.Users_2_64;
+            this.miPeople.Image = global::DVLD.Properties.Resources.People_64;
             this.miPeople.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.miPeople.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.miPeople.Name = "miPeople";
@@ -96,7 +112,7 @@
             this.miLogout.Image = global::DVLD.Properties.Resources.Sign_Out_32;
             this.miLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.miLogout.Name = "miLogout";
-            this.miLogout.Size = new System.Drawing.Size(180, 24);
+            this.miLogout.Size = new System.Drawing.Size(128, 24);
             this.miLogout.Text = "Logout";
             this.miLogout.Click += new System.EventHandler(this.miLogout_Click);
             // 
@@ -127,6 +143,7 @@
         private System.Windows.Forms.ToolStripMenuItem miApplication;
         private System.Windows.Forms.ToolStripMenuItem miUserSettings;
         private System.Windows.Forms.ToolStripMenuItem miLogout;
+        private System.Windows.Forms.ToolStripMenuItem miUsers;
     }
 }
 

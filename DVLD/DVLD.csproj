@@ -47,11 +47,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsSettings.cs" />
+    <Compile Include="Controls\usrlPersonCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\usrlPersonCardWithFilter.Designer.cs">
+      <DependentUpon>usrlPersonCardWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\usrPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\usrPersonCard.Designer.cs">
       <DependentUpon>usrPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmUserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmUserManagement.Designer.cs">
+      <DependentUpon>frmUserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\clsRememberMeManager.cs" />
     <Compile Include="Helpers\clsTextFile.cs" />
@@ -91,6 +109,9 @@
     <Compile Include="Validations\clsAddPersonValidator.cs" />
     <Compile Include="Validations\clsEditPersonValidator.cs" />
     <Compile Include="Validations\clsPersonValidator.cs" />
+    <EmbeddedResource Include="Controls\usrlPersonCardWithFilter.resx">
+      <DependentUpon>usrlPersonCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\usrPersonCard.resx">
       <DependentUpon>usrPersonCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,8 +124,14 @@
     <EmbeddedResource Include="Forms\People\frmPersonDetails.resx">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmUserManagement.resx">
+      <DependentUpon>frmUserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -194,6 +221,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sign Out 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People 400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddPerson 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prev 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

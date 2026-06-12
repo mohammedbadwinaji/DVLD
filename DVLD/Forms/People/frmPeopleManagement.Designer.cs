@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,24 +50,23 @@
             this.txtPersonID = new System.Windows.Forms.TextBox();
             this.cmbFilterOptions = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.dgvPeople = new System.Windows.Forms.DataGridView();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.cmiAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiShowDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiSendEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiPhoneCall = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlFooter.SuspendLayout();
             this.pnlPeopleView.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.cms.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -92,12 +92,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Manage People";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.People_400;
+            this.pictureBox1.Location = new System.Drawing.Point(433, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(119, 78);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlFooter
             // 
             this.pnlFooter.Controls.Add(this.lblTotal);
             this.pnlFooter.Controls.Add(this.label3);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 401);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 405);
             this.pnlFooter.Name = "pnlFooter";
             this.pnlFooter.Size = new System.Drawing.Size(1007, 46);
             this.pnlFooter.TabIndex = 1;
@@ -128,7 +138,7 @@
             this.pnlPeopleView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPeopleView.Location = new System.Drawing.Point(0, 132);
             this.pnlPeopleView.Name = "pnlPeopleView";
-            this.pnlPeopleView.Size = new System.Drawing.Size(1007, 269);
+            this.pnlPeopleView.Size = new System.Drawing.Size(1007, 273);
             this.pnlPeopleView.TabIndex = 2;
             // 
             // panel1
@@ -263,6 +273,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Filter By : ";
             // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewPerson.Image = global::DVLD.Properties.Resources.Add_Person_40;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(898, 4);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(67, 42);
+            this.btnAddNewPerson.TabIndex = 0;
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
             // dgvPeople
             // 
             this.dgvPeople.AllowUserToAddRows = false;
@@ -271,7 +292,7 @@
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeople.ContextMenuStrip = this.cms;
             this.dgvPeople.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvPeople.Location = new System.Drawing.Point(0, 52);
+            this.dgvPeople.Location = new System.Drawing.Point(0, 56);
             this.dgvPeople.MultiSelect = false;
             this.dgvPeople.Name = "dgvPeople";
             this.dgvPeople.ReadOnly = true;
@@ -292,17 +313,6 @@
             this.cmiPhoneCall});
             this.cms.Name = "contextMenuStrip1";
             this.cms.Size = new System.Drawing.Size(142, 136);
-            // 
-            // btnAddNewPerson
-            // 
-            this.btnAddNewPerson.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNewPerson.Image = global::DVLD.Properties.Resources.Add_Person_40;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(898, 4);
-            this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(67, 42);
-            this.btnAddNewPerson.TabIndex = 0;
-            this.btnAddNewPerson.UseVisualStyleBackColor = true;
-            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // cmiAdd
             // 
@@ -350,21 +360,11 @@
             this.cmiPhoneCall.Size = new System.Drawing.Size(141, 22);
             this.cmiPhoneCall.Text = "Phone Call";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.Users_2_400;
-            this.pictureBox1.Location = new System.Drawing.Point(433, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(119, 78);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmPeopleManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 447);
+            this.ClientSize = new System.Drawing.Size(1007, 451);
             this.Controls.Add(this.pnlPeopleView);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.pnlHeader);
@@ -374,6 +374,7 @@
             this.Load += new System.EventHandler(this.frmPeopleManagement_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
             this.pnlPeopleView.ResumeLayout(false);
@@ -383,7 +384,6 @@
             this.pnlFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
             this.cms.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -13,7 +13,30 @@ namespace DataAccess
     {
         public static bool IsPersonIdExists(int peronsId)
         {
-            return false;
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsSettings.connectionString);
+
+            string query = @"SELECT 1 FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", peronsId);
+
+            try
+            {
+                connection.Open();  
+                object result = command.ExecuteScalar();
+
+
+                isFound = result != null;
+                
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                throw ex;
+            }
+
+            return isFound;
         }
         public static bool IsNationalNoExists(string nationalNo)
         {
@@ -36,7 +59,68 @@ namespace DataAccess
                 throw (ex);
             }
         }
-        public static bool FindById
+        public static bool GetByNationalNo
+            (string nationalNo,ref int personId, ref string firstName, ref string secondName,
+            ref string thirdName, ref string lastName, ref DateTime dateOfBirth, ref byte gendor,
+            ref string address, ref string phone, ref string email,
+            ref int nationalityCountryId, ref string countryName, ref string imagePath)
+        {
+            SqlConnection connection = new SqlConnection(clsSettings.connectionString);
+            string query = @"SELECT * FROM People p
+                            INNER JOIN Countries c
+                            ON p.NationalityCountryID = c.CountryID
+                            WHERE NationalNo = @NationalNo";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNo",nationalNo);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (!reader.Read())
+                {
+                    return false;
+                }
+                personId = (int)reader["PersonID"];
+                nationalNo = (string)reader["NationalNo"];
+                firstName = (string)reader["FirstName"];
+                secondName = (string)reader["SecondName"];
+                thirdName = (string)reader["ThirdName"];
+                lastName = (string)reader["LastName"];
+                dateOfBirth = (DateTime)reader["DateOfBirth"];
+                gendor = (byte)reader["Gendor"];
+                address = (string)reader["Address"];
+                phone = (string)reader["Phone"];
+                if (reader["Email"] == DBNull.Value)
+                {
+                    email = "";
+                }
+                else
+                {
+                    email = (string)reader["Email"];
+                }
+                nationalityCountryId = (int)reader["NationalityCountryID"];
+                countryName = (string)reader["CountryName"];
+                if (reader["ImagePath"] == DBNull.Value)
+                {
+                    imagePath = "";
+                }
+                else
+                {
+                    imagePath = (string)reader["ImagePath"];
+                }
+
+                reader.Close();
+                connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                throw ex;
+            }
+        }
+        public static bool GetByID
             (int personId ,ref string nationalNo,ref string firstName , ref string secondName,
             ref string thirdName, ref string lastName,ref DateTime dateOfBirth , ref byte gendor, 
             ref string address , ref string phone , ref string email , 
@@ -296,6 +380,41 @@ namespace DataAccess
             }
             
 
+        }
+
+
+        public static bool IsUser(int personId)
+        {
+            bool IsUser = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings.connectionString);
+
+            string query = @"SELECT 1
+                            FROM People p
+                            INNER JOIN Users u
+                            ON p.PersonID = u.PersonID
+                            WHERE p.PersonID = @PersonID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", personId);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null) {
+                    IsUser = true;
+                }else
+                {
+                    IsUser = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                throw ex;
+            }
+
+            return IsUser;
         }
     }
 }

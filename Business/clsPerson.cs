@@ -37,6 +37,7 @@ namespace Business
         {
             this._Mode = enMode.AddNew;
         }
+
         private clsPerson(int personId ,string nationalNo, string firstName, string secondName, string thirdName, string lastName, DateTime dateOfBitth, byte gendor, string address, string phone, string email, int nationalityCountryID,string countryName, string imagePath)
         {
             PersonId = personId;
@@ -79,13 +80,36 @@ namespace Business
             try
             {
 
-                if (!clsPersonDataAccess.FindById(id, ref nationalNo, ref firstName, ref secondName, ref thirdName, ref lastName, ref dateOfBitth, ref gendor, ref address, ref phone, ref email, ref nationalityCountryId, ref countryName, ref imagePath))
+                if (!clsPersonDataAccess.GetByID(id, ref nationalNo, ref firstName, ref secondName, ref thirdName, ref lastName, ref dateOfBitth, ref gendor, ref address, ref phone, ref email, ref nationalityCountryId, ref countryName, ref imagePath))
                 {
                     return null;
                 }
                 else
                 {
                     return new clsPerson(id, nationalNo, firstName, secondName, thirdName, lastName, dateOfBitth, gendor, address, phone, email, nationalityCountryId, countryName, imagePath);
+                }
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+        }
+        public static clsPerson FindByNationalNo(string nationalNo)
+        {
+            string  firstName = "", secondName = "", thirdName = "", lastName = "", address = "", phone = "", email = "", imagePath = "", countryName = "";
+            DateTime dateOfBitth = DateTime.Now;
+            byte gendor = 1;
+            int personId = -1, nationalityCountryId = -1;
+            try
+            {
+
+                if (!clsPersonDataAccess.GetByNationalNo(nationalNo,ref personId, ref firstName, ref secondName, ref thirdName, ref lastName, ref dateOfBitth, ref gendor, ref address, ref phone, ref email, ref nationalityCountryId, ref countryName, ref imagePath))
+                {
+                    return null;
+                }
+                else
+                {
+                    return new clsPerson(personId, nationalNo, firstName, secondName, thirdName, lastName, dateOfBitth, gendor, address, phone, email, nationalityCountryId, countryName, imagePath);
                 }
             }
             catch (Exception e)
@@ -125,6 +149,12 @@ namespace Business
                     return Edit();
             }
             return false;
+        }
+
+
+        public static bool IsUser(int personId)
+        {
+            return clsPersonDataAccess.IsUser(personId);
         }
     }
 }

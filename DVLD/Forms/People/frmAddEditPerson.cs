@@ -78,26 +78,25 @@ namespace DVLD.Forms.People
         }
         private void _InitLinkLableImages()
         {
-            
             llRemoveImage.Visible= false;
-
         }
-        private void _InitForm()
+        private void _ResetForm()
         {
             _InitTitle();
             _InitGendorRadioButtons();
             _InitDateOfBirthTimePicker();
             _InitCountryComboBox();
             _InitLinkLableImages();
-        }
-        private void frmAddEditPerson_Load(object sender, EventArgs e)
-        {
-            _InitForm();
-            if (this._PersonID != -1) {
+
+            if (this._PersonID != -1)
+            {
                 _LoadPersonInfoToUI();
                 txtNationalNo.Enabled = false;
             }
-
+        }
+        private void frmAddEditPerson_Load(object sender, EventArgs e)
+        {
+            _ResetForm();
         }
 
       
@@ -221,8 +220,11 @@ namespace DVLD.Forms.People
 
                 if (this._Person.Save())
                 {
+                    this._PersonID = this._Person.PersonId;
+                    _ResetForm();
                     MessageBox.Show($"Person With ID {this._Person.PersonId} Saved Successfully");
                     OnPersonSaved?.Invoke(this._Person.PersonId);
+
                 } else
                 {
                     MessageBox.Show("Failed Saved Person");
