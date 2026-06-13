@@ -20,7 +20,7 @@ namespace DVLD.Forms.Users
         {
             All,
             Active,
-            Non_Active
+            Not_Active
         }
         enum enFilterOption
         {
@@ -158,7 +158,7 @@ namespace DVLD.Forms.Users
         {
             _OpenAddEditUserForm(-1);
         }
-        private int _GetSelectedPersonId()
+        private int _GetSelectedUserId()
         {
             int userId = -1;
             if (dgvUsers.CurrentRow != null)
@@ -169,7 +169,7 @@ namespace DVLD.Forms.Users
         }
         private void cmiEdit_Click(object sender, EventArgs e)
         {
-            _OpenAddEditUserForm(_GetSelectedPersonId());
+            _OpenAddEditUserForm(_GetSelectedUserId());
         }
 
         
@@ -281,6 +281,15 @@ namespace DVLD.Forms.Users
             }
 
 
+        }
+        private void _OpenChangePasswordForm()
+        {
+            frmChangePassword frm = new frmChangePassword(_GetSelectedUserId());
+            frm.ShowDialog();
+        }
+        private void cmiChangePassword_Click(object sender, EventArgs e)
+        {
+            _OpenChangePasswordForm();
         }
     }
 }

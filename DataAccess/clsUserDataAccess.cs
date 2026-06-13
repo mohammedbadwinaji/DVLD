@@ -202,7 +202,38 @@ namespace DataAccess
             return rowsAffected > 0;
         }
 
+        public static bool UpdatePassword(int userId,string currentPassword, string newPassword)
+        {
+            
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(   clsSettings.connectionString );
 
+            string query = @"UPDATE Users
+                             SET Password = @NewPassword
+                             WHERE UserID = @UserID AND
+                             Password = @Password";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Password", currentPassword);
+            command.Parameters.AddWithValue("@NewPassword", newPassword);
+            command.Parameters.AddWithValue("@UserID", userId);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery ();
+
+                
+                connection.Close();
+
+            }catch(Exception ex)
+            {
+                connection.Close();
+                throw ex;
+            }
+
+            return rowsAffected > 0;
+        }
 
     }
         

@@ -35,6 +35,7 @@
             this.cmiAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiShowDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiSendEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiPhoneCall = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,16 +94,17 @@
             this.cmiEdit,
             this.cmiDelete,
             this.cmiShowDetails,
+            this.cmiChangePassword,
             this.cmiSendEmail,
             this.cmiPhoneCall});
             this.cms.Name = "contextMenuStrip1";
-            this.cms.Size = new System.Drawing.Size(142, 136);
+            this.cms.Size = new System.Drawing.Size(181, 180);
             // 
             // cmiAdd
             // 
             this.cmiAdd.Image = global::DVLD.Properties.Resources.AddPerson_32;
             this.cmiAdd.Name = "cmiAdd";
-            this.cmiAdd.Size = new System.Drawing.Size(141, 22);
+            this.cmiAdd.Size = new System.Drawing.Size(180, 22);
             this.cmiAdd.Text = "Add";
             this.cmiAdd.Click += new System.EventHandler(this.cmiAdd_Click);
             // 
@@ -110,7 +112,7 @@
             // 
             this.cmiEdit.Image = global::DVLD.Properties.Resources.edit_32;
             this.cmiEdit.Name = "cmiEdit";
-            this.cmiEdit.Size = new System.Drawing.Size(141, 22);
+            this.cmiEdit.Size = new System.Drawing.Size(180, 22);
             this.cmiEdit.Text = "Edit";
             this.cmiEdit.Click += new System.EventHandler(this.cmiEdit_Click);
             // 
@@ -118,28 +120,36 @@
             // 
             this.cmiDelete.Image = global::DVLD.Properties.Resources.Delete_32;
             this.cmiDelete.Name = "cmiDelete";
-            this.cmiDelete.Size = new System.Drawing.Size(141, 22);
+            this.cmiDelete.Size = new System.Drawing.Size(180, 22);
             this.cmiDelete.Text = "Delete";
+            // 
+            // cmiChangePassword
+            // 
+            this.cmiChangePassword.Image = global::DVLD.Properties.Resources.PersonDetails_32;
+            this.cmiChangePassword.Name = "cmiChangePassword";
+            this.cmiChangePassword.Size = new System.Drawing.Size(180, 22);
+            this.cmiChangePassword.Text = "Change Password";
+            this.cmiChangePassword.Click += new System.EventHandler(this.cmiChangePassword_Click);
             // 
             // cmiShowDetails
             // 
             this.cmiShowDetails.Image = global::DVLD.Properties.Resources.PersonDetails_32;
             this.cmiShowDetails.Name = "cmiShowDetails";
-            this.cmiShowDetails.Size = new System.Drawing.Size(141, 22);
+            this.cmiShowDetails.Size = new System.Drawing.Size(180, 22);
             this.cmiShowDetails.Text = "Show Details";
             // 
             // cmiSendEmail
             // 
             this.cmiSendEmail.Image = global::DVLD.Properties.Resources.send_email_32;
             this.cmiSendEmail.Name = "cmiSendEmail";
-            this.cmiSendEmail.Size = new System.Drawing.Size(141, 22);
+            this.cmiSendEmail.Size = new System.Drawing.Size(180, 22);
             this.cmiSendEmail.Text = "Send Email";
             // 
             // cmiPhoneCall
             // 
             this.cmiPhoneCall.Image = global::DVLD.Properties.Resources.call_321;
             this.cmiPhoneCall.Name = "cmiPhoneCall";
-            this.cmiPhoneCall.Size = new System.Drawing.Size(141, 22);
+            this.cmiPhoneCall.Size = new System.Drawing.Size(180, 22);
             this.cmiPhoneCall.Text = "Phone Call";
             // 
             // label2
@@ -314,5 +324,6 @@
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.ComboBox cmbFilterValue;
+        private System.Windows.Forms.ToolStripMenuItem cmiChangePassword;
     }
 }

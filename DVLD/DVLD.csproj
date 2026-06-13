@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsSettings.cs" />
+    <Compile Include="Controls\usrLoginInfoCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\usrLoginInfoCard.Designer.cs">
+      <DependentUpon>usrLoginInfoCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\usrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="Forms\Users\frmAddEditUser.Designer.cs">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users\frmUserManagement.cs">
       <SubType>Form</SubType>
@@ -109,6 +121,9 @@
     <Compile Include="Validations\clsAddPersonValidator.cs" />
     <Compile Include="Validations\clsEditPersonValidator.cs" />
     <Compile Include="Validations\clsPersonValidator.cs" />
+    <EmbeddedResource Include="Controls\usrLoginInfoCard.resx">
+      <DependentUpon>usrLoginInfoCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\usrlPersonCardWithFilter.resx">
       <DependentUpon>usrlPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

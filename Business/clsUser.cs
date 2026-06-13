@@ -134,6 +134,13 @@ namespace Business
             }
             return false;
         }
+
+        public bool ChangePassword(string currentPass, string newPass)
+        {
+            bool isPasswordUpdated = clsUserDataAccess.UpdatePassword(this.UserID,currentPass,newPass);
+            this.Password = isPasswordUpdated ? newPass : this.Password;
+            return isPasswordUpdated;
+        }
         
     }
 }
