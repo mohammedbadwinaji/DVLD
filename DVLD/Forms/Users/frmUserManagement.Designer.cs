@@ -35,8 +35,8 @@
             this.cmiAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiSendEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiPhoneCall = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
@@ -90,10 +90,10 @@
             // cms
             // 
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmiShowDetails,
             this.cmiAdd,
             this.cmiEdit,
             this.cmiDelete,
-            this.cmiShowDetails,
             this.cmiChangePassword,
             this.cmiSendEmail,
             this.cmiPhoneCall});
@@ -123,6 +123,14 @@
             this.cmiDelete.Size = new System.Drawing.Size(180, 22);
             this.cmiDelete.Text = "Delete";
             // 
+            // cmiShowDetails
+            // 
+            this.cmiShowDetails.Image = global::DVLD.Properties.Resources.PersonDetails_32;
+            this.cmiShowDetails.Name = "cmiShowDetails";
+            this.cmiShowDetails.Size = new System.Drawing.Size(180, 22);
+            this.cmiShowDetails.Text = "Show Details";
+            this.cmiShowDetails.Click += new System.EventHandler(this.cmiShowDetails_Click);
+            // 
             // cmiChangePassword
             // 
             this.cmiChangePassword.Image = global::DVLD.Properties.Resources.PersonDetails_32;
@@ -130,13 +138,6 @@
             this.cmiChangePassword.Size = new System.Drawing.Size(180, 22);
             this.cmiChangePassword.Text = "Change Password";
             this.cmiChangePassword.Click += new System.EventHandler(this.cmiChangePassword_Click);
-            // 
-            // cmiShowDetails
-            // 
-            this.cmiShowDetails.Image = global::DVLD.Properties.Resources.PersonDetails_32;
-            this.cmiShowDetails.Name = "cmiShowDetails";
-            this.cmiShowDetails.Size = new System.Drawing.Size(180, 22);
-            this.cmiShowDetails.Text = "Show Details";
             // 
             // cmiSendEmail
             // 

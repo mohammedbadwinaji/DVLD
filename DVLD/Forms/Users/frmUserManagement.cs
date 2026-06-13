@@ -145,6 +145,17 @@ namespace DVLD.Forms.Users
             frm.OnUserSave += _HandleUserSaved;
             frm.ShowDialog();
         }
+        private void _OpenChangePasswordForm()
+        {
+            frmChangePassword frm = new frmChangePassword(_GetSelectedUserId());
+            frm.ShowDialog();
+        }
+        private void _OpenShowDetailsForm(int UserId)
+        {
+            frmUserDetails frm = new frmUserDetails(UserId);
+            frm.ShowDialog();
+        }
+
         private void _HandleUserSaved(int userId)
         {
             _RefreshUsersDataGridView();
@@ -282,14 +293,15 @@ namespace DVLD.Forms.Users
 
 
         }
-        private void _OpenChangePasswordForm()
-        {
-            frmChangePassword frm = new frmChangePassword(_GetSelectedUserId());
-            frm.ShowDialog();
-        }
+
         private void cmiChangePassword_Click(object sender, EventArgs e)
         {
             _OpenChangePasswordForm();
+        }
+
+        private void cmiShowDetails_Click(object sender, EventArgs e)
+        {
+            _OpenShowDetailsForm(_GetSelectedUserId());
         }
     }
 }

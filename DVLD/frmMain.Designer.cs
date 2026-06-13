@@ -33,6 +33,8 @@
             this.miUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.miPeople = new System.Windows.Forms.ToolStripMenuItem();
             this.miUserSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.miCurrentUserInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.miChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.miLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +98,8 @@
             // 
             this.miUserSettings.BackColor = System.Drawing.Color.White;
             this.miUserSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miCurrentUserInfo,
+            this.miChangePassword,
             this.miLogout});
             this.miUserSettings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miUserSettings.Image = global::DVLD.Properties.Resources.account_settings_64;
@@ -107,12 +111,30 @@
             this.miUserSettings.Text = "Account Settings";
             this.miUserSettings.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
+            // miCurrentUserInfo
+            // 
+            this.miCurrentUserInfo.Image = global::DVLD.Properties.Resources.PersonDetails_321;
+            this.miCurrentUserInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.miCurrentUserInfo.Name = "miCurrentUserInfo";
+            this.miCurrentUserInfo.Size = new System.Drawing.Size(201, 24);
+            this.miCurrentUserInfo.Text = "Current User Info";
+            this.miCurrentUserInfo.Click += new System.EventHandler(this.miCurrentUserInfo_Click);
+            // 
+            // miChangePassword
+            // 
+            this.miChangePassword.Image = global::DVLD.Properties.Resources.Sign_Out_32;
+            this.miChangePassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.miChangePassword.Name = "miChangePassword";
+            this.miChangePassword.Size = new System.Drawing.Size(201, 24);
+            this.miChangePassword.Text = "Change Password";
+            this.miChangePassword.Click += new System.EventHandler(this.miChangePassword_Click);
+            // 
             // miLogout
             // 
-            this.miLogout.Image = global::DVLD.Properties.Resources.Sign_Out_32;
+            this.miLogout.Image = global::DVLD.Properties.Resources.sign_out_32__2;
             this.miLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.miLogout.Name = "miLogout";
-            this.miLogout.Size = new System.Drawing.Size(128, 24);
+            this.miLogout.Size = new System.Drawing.Size(201, 24);
             this.miLogout.Text = "Logout";
             this.miLogout.Click += new System.EventHandler(this.miLogout_Click);
             // 
@@ -144,6 +166,8 @@
         private System.Windows.Forms.ToolStripMenuItem miUserSettings;
         private System.Windows.Forms.ToolStripMenuItem miLogout;
         private System.Windows.Forms.ToolStripMenuItem miUsers;
+        private System.Windows.Forms.ToolStripMenuItem miCurrentUserInfo;
+        private System.Windows.Forms.ToolStripMenuItem miChangePassword;
     }
 }
 

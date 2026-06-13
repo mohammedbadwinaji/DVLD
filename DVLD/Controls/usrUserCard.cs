@@ -11,33 +11,24 @@ using Business;
 
 namespace DVLD.Controls
 {
-    public partial class usrLoginInfoCard : UserControl
+    public partial class usrUserCard : UserControl
     {
-        public usrLoginInfoCard()
+        public usrUserCard()
         {
             InitializeComponent();
         }
+
         public void LoadInfo(int userId)
         {
             clsUser user = clsUser.FindByID(userId);
-            if (user == null) {
+            if(user ==null)
+            {
                 return;
             }
-
+            ctrlPersonCard.LoadInfo(user.Person.PersonId);
             lblUserID.Text = user.UserID.ToString();
             lblUsername.Text = user.Username;
-            lblIsActive.Text = user.IsActive ? "Yes" : "No";
-        }
-
-        private void _SetDefaultValues()
-        {
-            lblUserID.Text = "???";
-            lblUsername.Text = "???";
-            lblIsActive.Text = "???";   
-        }
-        private void usrLoginInfoCard_Load(object sender, EventArgs e)
-        {
-            _SetDefaultValues();
+            lblIsActive.Text = user.IsActive ? "Yes" :"No";
         }
     }
 }

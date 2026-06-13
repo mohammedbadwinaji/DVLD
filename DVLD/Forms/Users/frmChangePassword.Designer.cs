@@ -39,8 +39,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.ctrlLoginInfo = new DVLD.Controls.usrLoginInfoCard();
-            this.ctrlPersonInfo = new DVLD.Controls.usrPersonCard();
+            this.ctrlUserCard = new DVLD.Controls.usrUserCard();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -155,27 +154,20 @@
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
-            // ctrlLoginInfo
+            // ctrlUserCard
             // 
-            this.ctrlLoginInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ctrlLoginInfo.Location = new System.Drawing.Point(0, 363);
-            this.ctrlLoginInfo.Name = "ctrlLoginInfo";
-            this.ctrlLoginInfo.Size = new System.Drawing.Size(800, 73);
-            this.ctrlLoginInfo.TabIndex = 1;
-            // 
-            // ctrlPersonInfo
-            // 
-            this.ctrlPersonInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ctrlPersonInfo.Location = new System.Drawing.Point(0, 0);
-            this.ctrlPersonInfo.Name = "ctrlPersonInfo";
-            this.ctrlPersonInfo.Size = new System.Drawing.Size(800, 363);
-            this.ctrlPersonInfo.TabIndex = 0;
+            this.ctrlUserCard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ctrlUserCard.Location = new System.Drawing.Point(0, 0);
+            this.ctrlUserCard.Name = "ctrlUserCard";
+            this.ctrlUserCard.Size = new System.Drawing.Size(800, 440);
+            this.ctrlUserCard.TabIndex = 13;
             // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 596);
+            this.Controls.Add(this.ctrlUserCard);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -187,8 +179,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ctrlLoginInfo);
-            this.Controls.Add(this.ctrlPersonInfo);
             this.Name = "frmChangePassword";
             this.Text = "frmChangePassword";
             this.Load += new System.EventHandler(this.frmChangePassword_Load);
@@ -201,9 +191,6 @@
         }
 
         #endregion
-
-        private Controls.usrPersonCard ctrlPersonInfo;
-        private Controls.usrLoginInfoCard ctrlLoginInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -215,5 +202,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private Controls.usrUserCard ctrlUserCard;
     }
 }

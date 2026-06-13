@@ -17,5 +17,7 @@ namespace DVLD
         public static string WomenImagePath = @"D:\Course_19\MySolution\Icons\Woman 32.png";
 
         public static string RememberMeDataPath = @"D:\Course_19\MySolution\files\remeber.txt";
+
+        public static int CurrentUserID = -1;
     }
 }

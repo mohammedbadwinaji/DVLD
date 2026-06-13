@@ -45,6 +45,8 @@ namespace DVLD.Forms.Users
                 clsRememberMeManager.ClearCredentials(out errorMessage);
             }
 
+            clsSettings.CurrentUserID = user.UserID;
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

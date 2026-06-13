@@ -21,11 +21,7 @@ namespace DVLD.Forms.Users
             _UserID = userId;
             _User = new clsUser();  
         }
-        private void _LoadUserInfo()
-        {
-            ctrlPersonInfo.LoadInfo(_User.Person.PersonId);
-            ctrlLoginInfo.LoadInfo(_User.UserID);
-        }
+      
         private void frmChangePassword_Load(object sender, EventArgs e)
         {
             if(_UserID == -1)
@@ -41,8 +37,8 @@ namespace DVLD.Forms.Users
                 this.Close();
                 return;
             }
-
-            _LoadUserInfo();
+            
+            ctrlUserCard.LoadInfo(_UserID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

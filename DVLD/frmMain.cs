@@ -128,6 +128,26 @@ namespace DVLD
             frm.MdiParent = this;
             frm.Width = this.Width - 200;
 
+            frm.ShowDialog();
+            _CenterAllForms();
+        }
+
+        private void miChangePassword_Click(object sender, EventArgs e)
+        {
+            _CloseAllForms();
+            frmChangePassword frm = new frmChangePassword(clsSettings.CurrentUserID);
+            frm.MdiParent = this;
+
+            frm.Show();
+            _CenterAllForms();
+        }
+
+        private void miCurrentUserInfo_Click(object sender, EventArgs e)
+        {
+            _CloseAllForms();
+            frmUserDetails frm = new frmUserDetails(clsSettings.CurrentUserID);
+            frm.MdiParent = this;
+
             frm.Show();
             _CenterAllForms();
         }
